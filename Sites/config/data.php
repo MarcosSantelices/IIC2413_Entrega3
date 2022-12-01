@@ -1,9 +1,9 @@
 <?php
-  $user = 'grupo998';
-  $password = 'grupo998';
-  $databaseName = 'grupo998e3';
+  $user = 'grupo100';
+  $password = 'grupo100';
+  $databaseName = 'grupo100e3';
 
-  $user2 = 'grupo999';
-  $password2 = 'grupo999';
-  $databaseName2 = 'grupo999e3';
+  $user2 = 'grupo105';
+  $password2 = 'grupo105';
+  $databaseName2 = 'grupo105e3';
 ?>
