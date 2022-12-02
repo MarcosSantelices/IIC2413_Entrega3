@@ -4,8 +4,8 @@
         <div class='main'>
             <h1 align="center">Login</h1>
             <div class='container'>
-                <h3>Ver base de datos 1</h3>
-                <form  action='./queries/bdd_prueba.php' method='GET'>
+                <h3>Importar Datos</h3>
+                <form  action='./queries/importar_usuarios.php' method='GET'>
                     <input class='btn' type='submit' value='Consultar'>
                 </form>
             </div>
