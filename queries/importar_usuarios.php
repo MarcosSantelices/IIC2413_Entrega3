@@ -5,7 +5,7 @@
     include('../templates/header.html');
  
     // Primero obtenemos todos los pokemons de la tabla que queremos agregar
-    $query = "SELECT * FROM productoras";
+    $query = "SELECT * FROM productoras;";
     $result = $db2 -> prepare($query);
     $result -> execute();
     $productoras = $result -> fetchAll();
@@ -17,7 +17,7 @@
         // Hacemos una verificacion para ver si el pokemon es legendario porque ese parámetro no se comporta muy bien entre php y sql
         // asi que lo agregamos manualmente al final (por eso los FALSE o TRUE)
 
-        $query = "SELECT importar_usuarios('$productora[0]'::varchar, '$productora[1]'::varchar, $productora[2], $productora[3])";
+        $query = "SELECT importar_usuarios('$productora[0]'::varchar, '$productora[1]'::varchar, $productora[2], $productora[3]);";
 
         // Ejecutamos las querys para efectivamente insertar los datos
         $result = $db -> prepare($query);
@@ -29,7 +29,7 @@
     $query = "SELECT * FROM usuarios;";
     $result = $db -> prepare($query);
     $result -> execute();
-    $pokemons = $result -> fetchAll();
+    $productoras = $result -> fetchAll();
 
 ?>
 
