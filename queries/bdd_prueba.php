@@ -6,7 +6,7 @@
     $query = "SELECT * FROM usuarios ORDER BY id;";
     $result = $db -> prepare($query);
     $result -> execute();
-    $pokemons = $result -> fetchAll();
+    $usuarios = $result -> fetchAll();
 
 ?>
 
