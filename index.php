@@ -1,25 +1,29 @@
 <?php include('./templates/header.html');   ?>
+
     <body>
         <div class='main'>
-            <h1 class='title'>Pókemon </h1>
+            <h1 align="center">Login</h1>
             <div class='container'>
                 <h3>Ver base de datos 1</h3>
-                <form  action='./queries/bdd1.php' method='GET'>
+                <form  action='./queries/bdd_prueba.php' method='GET'>
                     <input class='btn' type='submit' value='Consultar'>
                 </form>
             </div>
+
             <div class='container'>
                 <h3>Ver base de datos 2</h3>
                 <form  action='./queries/bdd2.php' method='GET'>
                     <input class='btn' type='submit' value='Consultar'>
                 </form>
             </div>
+
             <div class='container'>
                 <h3>Procedimiento almacenado 1</h3>
                 <form  action='./queries/procedimiento1.php' method='GET'>
                     <input class='btn' type='submit' value='Consultar'>
                 </form>
             </div>
+
             <div class='container'>
                 <h3>Procedimiento almacenado 2</h3>
 
