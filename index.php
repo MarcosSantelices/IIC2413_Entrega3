@@ -120,7 +120,7 @@
         </div>
         <footer>
             <p>
-                IIC2413 - Ayudantía 3 BDD
+                IIC2413 - Entrega 3 BDD
             </p>
         </footer>
 

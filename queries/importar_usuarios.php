@@ -6,7 +6,7 @@
  
     // Primero obtenemos todos los pokemons de la tabla que queremos agregar
     $query = "SELECT * FROM productoras;";
-    $result = $db2 -> prepare($query);
+    $result = $db -> prepare($query);
     $result -> execute();
     $productoras = $result -> fetchAll();
 
@@ -20,14 +20,14 @@
         $query = "SELECT importar_usuarios('$productora[0]'::varchar, '$productora[1]'::varchar, $productora[2], $productora[3]);";
 
         // Ejecutamos las querys para efectivamente insertar los datos
-        $result = $db -> prepare($query);
+        $result = $db2 -> prepare($query);
         $result -> execute();
         $result -> fetchAll();
     }
 
     // Mostramos los cambios en una nueva tabla
     $query = "SELECT * FROM usuarios;";
-    $result = $db -> prepare($query);
+    $result = $db2 -> prepare($query);
     $result -> execute();
     $productoras = $result -> fetchAll();
 
@@ -57,7 +57,7 @@
         </table>
         <footer>
             <p>
-                IIC2413 - Ayudantía 3 BDD
+                IIC2413 - Entrega 3 BDD
             </p>
         </footer>
     </body>
