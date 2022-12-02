@@ -11,8 +11,8 @@ RETURNS BOOLEAN AS $$
 -- definimos nuestra función
 BEGIN
 
-    IF nombre NOT IN (SELECT nombre from usuarios) THEN
-        INSERT INTO usuarios values(nombre, nombre, "productora");
+    IF nombre NOT IN (SELECT nombre_usuario from usuarios) THEN
+        INSERT INTO usuarios(nombre_usuario, contrasena, tipo) values(nombre, nombre, 'productora');
 
         -- retornamos true si se agregó el valor
         RETURN TRUE;
