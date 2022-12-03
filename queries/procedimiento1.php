@@ -5,74 +5,45 @@
     include('../templates/header.html');
 
     // Primero obtenemos todos los pokemons de la tabla que queremos agregar
-    $query = "SELECT * FROM pokemon2 ORDER BY id;";
-    $result = $db2 -> prepare($query);
+    $query = "SELECT * FROM productoras;";
+    $result = $db -> prepare($query);
     $result -> execute();
-    $pokemons = $result -> fetchAll();
+    $productoras = $result -> fetchAll();
 
 
-    foreach ($pokemons as $pokemon){
+    foreach ($productoras as $productora){
 
         // Luego construimos las querys con nuestro procedimiento almacenado para ir agregando esas tuplas a nuestra bdd objetivo
         // Hacemos una verificacion para ver si el pokemon es legendario porque ese parámetro no se comporta muy bien entre php y sql
         // asi que lo agregamos manualmente al final (por eso los FALSE o TRUE)
 
-        if (! $pokemon['legendary'] == 1){
-            $query = "SELECT mover_pokemon($pokemon[0], '$pokemon[1]'::varchar,'$pokemon[2]'::varchar,$pokemon[3],$pokemon[4],$pokemon[5],$pokemon[6],$pokemon[7],$pokemon[8], $pokemon[9],FALSE);";
-        } else {
-            $query = "SELECT mover_pokemon($pokemon[0], '$pokemon[1]'::varchar,'$pokemon[2]'::varchar,$pokemon[3],$pokemon[4],$pokemon[5],$pokemon[6],$pokemon[7],$pokemon[8], $pokemon[9],TRUE);";
-        }
-
+       
+        $query = "SELECT usuario_productora('$productora[0]'::varchar);";
+        
 
         // Ejecutamos las querys para efectivamente insertar los datos
-        $result = $db -> prepare($query);
+        $result = $db2 -> prepare($query);
         $result -> execute();
         $result -> fetchAll();
     }
 
 
     // Mostramos los cambios en una nueva tabla
-    $query = "SELECT * FROM pokemon1 ORDER BY id DESC;";
-    $result = $db -> prepare($query);
+    $query = "SELECT * FROM usuarios ORDER BY id;";
+    $result = $db2 -> prepare($query);
     $result -> execute();
     $pokemons = $result -> fetchAll();
 
 ?>
-
-    <body>  
-        <table class='table'>
-            <thead>
-                <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Total</th>
-                <th>HP</th>
-                <th>Attack</th>
-                <th>Defense</th>
-                <th>Sp. Atk</th>
-                <th>Sp. Def</th>
-                <th>Speed</th>
-                <th>Legendary</th>
-                <th>Generation</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                foreach ($pokemons as $pokemon) {
-                    echo "<tr>";
-                    for ($i = 0; $i < 12; $i++) {
-                        echo "<td>$pokemon[$i]</td> ";
-                    }
-                    echo "</tr>";
-                }
-                ?>
-            </tbody>
-        </table>
-        <footer>
-            <p>
-                IIC2413 - Ayudantía 3 BDD
-            </p>
-        </footer>
-    </body>
+<table align="center">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+    </tr>
+  <?php
+	foreach ($usuarios as $usuario) {
+  		echo "<tr> <td>$usuario[0]</td> <td>$usuario[1]</td> </tr>";
+	}
+  ?>
+	</table>
 </html>
