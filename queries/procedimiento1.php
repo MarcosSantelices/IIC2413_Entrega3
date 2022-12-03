@@ -19,18 +19,13 @@
       // Luego construimos las querys con nuestro procedimiento almacenado para ir agregando esas tuplas a nuestra bdd objetivo
       // Hacemos una verificacion para ver si el pokemon es legendario porque ese parámetro no se comporta muy bien entre php y sql
       // asi que lo agregamos manualmente al final (por eso los FALSE o TRUE)
-
-      insert_statement = 'insert into usuarios(nombre, contrasena, tipo) values(lower(replace("'||productora[0]||'", ' ', '_')), md5(random()::text), 'productora');';
-      res := dblink_exec('db2', insert_statement, true);
-      RAISE INFO '%', res;
-      perform dblink_disconnect('db2');
-      //$query = "SELECT usuario_productora('$productora[0]'::varchar);";
+      $query = "SELECT usuario_productora('$productora[0]'::varchar);";
       
 
       // Ejecutamos las querys para efectivamente insertar los datos
-      //$result = $db2 -> prepare($query);
-      //$result -> execute();
-      //$result -> fetchAll();
+      $result = $db2 -> prepare($query);
+      $result -> execute();
+      $result -> fetchAll();
   }
 
 
