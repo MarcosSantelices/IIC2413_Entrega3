@@ -36,8 +36,8 @@
 ?>
 <?php
 
-include_once 'includes/user.php';
-include_once 'includes/user_session.php';
+include_once '../includes/user.php';
+include_once '../includes/user_session.php';
 
 $userSession = new UserSession();
 $user = new User();
@@ -46,7 +46,7 @@ if(isset($_SESSION['user'])){
     //echo 'Hay sesión';
 
     $user->setUser($userSession->get_current_user());
-    include_once 'vistas/home.php';
+    include_once '../vistas/home.php';
 
 } else if(isset($_POST['username'])){
     // echo 'Validación de login';
@@ -60,17 +60,17 @@ if(isset($_SESSION['user'])){
         $userSession->setCurrentUser($userForm);
         $user->setUser($userForm);
 
-        include_once 'vistas/home.php';
+        include_once '../vistas/home.php';
 
     } else {
         $errorLogin = 'Nombre de usuario y/o contraseña incorrectos';
-        include_once 'vistas/login.php';
+        include_once '../vistas/login.php';
     }
 
 
 } else {
     // echo 'Login';
-    include_once 'vistas/login.php';
+    include_once '../vistas/login.php';
 }
 
 
