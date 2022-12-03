@@ -3,7 +3,7 @@
   // Nos conectamos a las bdds
   require("../config/conexion.php");
   include('../templates/header.html');
-  PERFORM dblink_connect('db2', 'dbname=grupo105e3 user=grupo100 password=grupo100');
+  PERFORM dblink_connect('db2', 'dbname=grupo105e3 user=grupo105 password=grupo105');
   
   
 
