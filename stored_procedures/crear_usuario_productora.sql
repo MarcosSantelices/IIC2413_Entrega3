@@ -9,8 +9,8 @@ DECLARE
     res TEXT;
 BEGIN
     PERFORM dblink_connect('db2', 'dbname=grupo105e3 user=grupo105 password=grupo105');
-    insert_statement = 'INSERT INTO usuarios(nombre_usuario, contrasena, tipo) VALUES(lower(replace('''||p_nombre||''', '' '', ''_'')), md5(random()::text), ''productora'');';
-    res := dblink_exec('db2', insert_statement, true);
+    insert_statement = 'INSERT INTO usuarios(nombre_usuario, contrasena, tipo) VALUES('''||p_nombre||''', ''productora'');';
+    res := dblink_exec('db2', insert_statement, true); --lower(replace('''||p_nombre||''', '' '', ''_'')), md5(random()::text)
     RAISE INFO '%', res;
     perform dblink_disconnect('db2');
 END
